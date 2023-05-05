@@ -24,8 +24,13 @@ namespace BankAccountInheritance
             Balance = 0;
             countNumber++;
             _accountNumber = countNumber.ToString();
+        }
 
-
+        public BankAccount(double balance)
+        {
+            this.Balance = balance;
+            countNumber++;
+            _accountNumber = countNumber.ToString();
         }
 
         public BankAccount(string accountNumber, double balance)
@@ -34,6 +39,26 @@ namespace BankAccountInheritance
             this._accountNumber = accountNumber;
         }
 
+        public void Deposit(double amount)
+        {
+            Balance += amount;
+        }
+
+
+        public double Withdraw(double amount)
+        {
+            if (Balance >= amount)
+            {
+                Balance -= amount;
+                return amount;
+            }
+            else
+            {
+                amount = Balance;
+                Balance = 0;
+            }
+            return amount;
+        }
         public override string ToString()
         {
             return $"Account Number : {_accountNumber} Balance: {Balance}";
