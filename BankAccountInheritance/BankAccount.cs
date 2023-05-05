@@ -9,7 +9,7 @@ namespace BankAccountInheritance
     internal class BankAccount
     {
         string _accountNumber;
-
+        static int countNumber = 0;
 
         public string AccountNumber
         {
@@ -19,9 +19,16 @@ namespace BankAccountInheritance
 
         public double Balance { get; private set; }
 
-        public BankAccount() { }
+        public BankAccount()
+        {
+            Balance = 0;
+            countNumber++;
+            _accountNumber = countNumber.ToString();
 
-        public BankAccount(string accountNumber,double balance)
+
+        }
+
+        public BankAccount(string accountNumber, double balance)
         {
             this.Balance = balance;
             this._accountNumber = accountNumber;
@@ -29,7 +36,7 @@ namespace BankAccountInheritance
 
         public override string ToString()
         {
-            return $"Balance: {Balance}";
+            return $"Account Number ; {_accountNumber} Balance: {Balance}";
         }
     }
 }
