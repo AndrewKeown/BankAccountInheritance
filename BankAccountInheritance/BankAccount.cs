@@ -17,7 +17,7 @@ namespace BankAccountInheritance
             set { _accountNumber = value; }
         }
 
-        public double Balance { get; private set; }
+        public double Balance { get; protected set; }
 
         public BankAccount()
         {
@@ -84,6 +84,32 @@ namespace BankAccountInheritance
         {
             this.OverdraftLimit = overdraftLimit;
         }
+
+        public CurrentAccount(string accountNumber, double balance, double overdraftLimit) : base(accountNumber,balance)
+        {
+            this.OverdraftLimit = overdraftLimit;
+        }
+
+        public override double Withdraw(double amount)
+        {
+            if (Balance+OverdraftLimit >= amount)
+            {
+                Balance -= amount;
+               
+            }
+            else
+            {
+                amount = Balance+OverdraftLimit;
+                
+            }
+            return amount;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " Overdraft Limit: " + OverdraftLimit.ToString();
+        }
+
 
     }
 }
