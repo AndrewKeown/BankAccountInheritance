@@ -44,7 +44,13 @@ namespace BankAccountInheritance
             Balance += amount;
         }
 
-
+        /// <summary>
+        /// This method withdraws the amount from the account and subtracts from the balance.
+        /// If there;s not wnough money, the avalible balance is withdrawn and the balance set to 0;
+        /// The amount of money avalible to withdraw is returned.
+        /// </summary>
+        /// <param name="amount"></param>
+        /// <returns></returns>
         public double Withdraw(double amount)
         {
             if (Balance >= amount)
