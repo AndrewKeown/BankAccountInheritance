@@ -71,7 +71,7 @@ namespace BankAccountInheritance
         }
     }
 
-    class CurrentAccount:BankAccount
+    class CurrentAccount : BankAccount
     {
         public double OverdraftLimit { get; private set; }
 
@@ -80,28 +80,28 @@ namespace BankAccountInheritance
             OverdraftLimit = 0;
         }
 
-        public CurrentAccount(double balance, double overdraftLimit):base(balance)
+        public CurrentAccount(double balance, double overdraftLimit) : base(balance)
         {
             this.OverdraftLimit = overdraftLimit;
         }
 
-        public CurrentAccount(string accountNumber, double balance, double overdraftLimit) : base(accountNumber,balance)
+        public CurrentAccount(string accountNumber, double balance, double overdraftLimit) : base(accountNumber, balance)
         {
             this.OverdraftLimit = overdraftLimit;
         }
 
         public override double Withdraw(double amount)
         {
-            if ((Balance+OverdraftLimit) >= amount)
+            if ((Balance + OverdraftLimit) >= amount)
             {
                 Balance -= amount;
-               
+
             }
             else
             {
-                amount = Balance+OverdraftLimit;
-                Balance = OverdraftLimit*(-1);
-                
+                amount = Balance + OverdraftLimit;
+                Balance = OverdraftLimit * (-1);
+
             }
             return amount;
         }
