@@ -51,7 +51,7 @@ namespace BankAccountInheritance
         /// </summary>
         /// <param name="amount"></param>
         /// <returns></returns>
-        public double Withdraw(double amount)
+        public virtual double Withdraw(double amount)
         {
             if (Balance >= amount)
             {
@@ -69,5 +69,21 @@ namespace BankAccountInheritance
         {
             return $"Account Number : {_accountNumber} Balance: {Balance}";
         }
+    }
+
+    class CurrentAccount:BankAccount
+    {
+        public double OverdraftLimit { get; private set; }
+
+        public CurrentAccount() : base()
+        {
+            OverdraftLimit = 0;
+        }
+
+        public CurrentAccount(double balance, double overdraftLimit):base(balance)
+        {
+            this.OverdraftLimit = overdraftLimit;
+        }
+
     }
 }
