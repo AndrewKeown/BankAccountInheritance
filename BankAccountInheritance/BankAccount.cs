@@ -100,6 +100,7 @@ namespace BankAccountInheritance
             else
             {
                 amount = Balance+OverdraftLimit;
+                Balance = OverdraftLimit*(-1);
                 
             }
             return amount;
