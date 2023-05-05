@@ -36,7 +36,7 @@ namespace BankAccountInheritance
 
         public override string ToString()
         {
-            return $"Account Number ; {_accountNumber} Balance: {Balance}";
+            return $"Account Number : {_accountNumber} Balance: {Balance}";
         }
     }
 }

@@ -5,8 +5,9 @@
         static void Main(string[] args)
         {
             BankAccount b = new BankAccount();
+            BankAccount c = new BankAccount("ABC123", 100);
 
-            Console.WriteLine(b.ToString());
+            Console.WriteLine(c.ToString());
         }
     }
 }
